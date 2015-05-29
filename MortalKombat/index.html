@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>MortalKombat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+    <body ng-app="MortalKombat" style="background-image:url('mortalk.jpg'); background-repeat: no-repeat; background-size:cover">
+
+        <div ng-controller="mainCtrl" class="container" style="margin-top:30px; background-color: rgba(238, 238, 238, 0.54)">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 style="text-align:center; margin-top:30px">Mortal Kombat #4Life</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="usr">Title:</label>
+                                <input type="text" class="form-control" placeholder="Title" ng-model="newCartoon.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="usr">Description:</label>
+                                <input type="text" class="form-control" placeholder="Description" ng-model="newCartoon.desc">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="usr">URL:</label>
+                                <input type="text" class="form-control" placeholder="URL" ng-model="newCartoon.url">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4">
+                    <a href="#" class="myButton" syle="margin-left:auto; margin-right:auto" ng-click="addCartoon()">Add</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-8">
+                        <h3>Add Your Fighter</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3" ng-repeat="cartoon in findArray">
+                            <button type="button" ng-click="deleteCartoon($index)">Delete</button>
+                            Name: {{cartoon.name}}<br>
+                            <img ng-src="{{cartoon.url}}" height="300px" width="250px" class="img-responsive"><br>
+                            Description: {{cartoon.desc}}<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="main.js"></script>
+        <script src="modelService.js"></script>
+    </body>
+</html>
+
+
+
